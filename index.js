@@ -11,9 +11,9 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 
-app.use('/equipos', require('./routes/equipos'));
-app.use('/tecnicos', require('./routes/tecnicos'));
-app.use('/mantenimientos', require('./routes/mantenimientos'));
+app.use('/api/v1/equipos', require('./routes/equipos'));
+app.use('/api/v1/tecnicos', require('./routes/tecnicos'));
+app.use('/api/v1/mantenimientos', require('./routes/mantenimientos'));
 
 const PORT = process.env.PORT || 3000;
 
