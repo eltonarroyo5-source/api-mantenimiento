@@ -1,10 +1,14 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const helmet = require('helmet');
+const morgan = require('morgan');
 const { sequelize } = require('./models');
 
 const app = express();
+app.use(helmet());
 app.use(cors());
+app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/equipos', require('./routes/equipos'));
@@ -18,4 +22,4 @@ sequelize.authenticate()
     console.log('Conexión a MySQL exitosa');
     app.listen(PORT, () => console.log(`Servidor activo en puerto ${PORT}`));
   })
-  .catch(err => console.error('Error de conexión:', err.message));
+  .catch(err => console.error('Error de conexión:', err));
