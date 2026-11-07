@@ -46,3 +46,12 @@ INSERT INTO tecnicos (nombre, email, telefono) VALUES
 INSERT INTO mantenimientos (equipo_id, tecnico_id, fecha, tipo, descripcion, estado) VALUES
   (1, 1, '2026-10-20', 'preventivo', 'Limpieza interna y actualización de software', 'completado'),
   (2, 2, '2026-10-25', 'correctivo', 'Cambio de rodillo de papel', 'pendiente');
+
+  CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
